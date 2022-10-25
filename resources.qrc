@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="final_label">Resouces/final_label</file>
+        <file alias="ass_label">Resouces/asymmetric_cipher_label</file>
+        <file alias="ass_text">Resouces/asymmetric_cipher_text</file>
+        <file alias="ecp_label">Resouces/ecp_label</file>
+        <file alias="ecp_text">Resouces/ecp_text</file>
+        <file alias="final_text">Resouces/final_text</file>
+        <file alias="hash_label">Resouces/hash_label</file>
+        <file alias="hash_text">Resouces/hash_text</file>
+        <file alias="symm_label">Resouces/symmetric_cipher_label</file>
+        <file alias="symm_text">Resouces/symmetric_cipher_text</file>
+    </qresource>
+</RCC>
