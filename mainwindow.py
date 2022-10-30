@@ -1,6 +1,6 @@
 # Этот шаг нужен для пересборки файла формы
 import os
-os.system("./make_ui.sh")
+#os.system("./make_ui.sh")
 
 # This Python file uses the following encoding: utf-8
 import sys
