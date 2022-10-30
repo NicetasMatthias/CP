@@ -1,12 +1,12 @@
 # Этот шаг нужен для пересборки файла формы
 import os
-#os.system("./make_ui.sh")
+os.system("./make_ui.sh")
 
 # This Python file uses the following encoding: utf-8
 import sys
 import random, string
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
-from PySide6.QtCore import QFile, QIODevice
+from PySide6.QtCore import QFile, QIODevice, QTranslator, QCoreApplication, QLocale, QObject
 from Crypto.Cipher import AES
 #from Crypto.PublicKey import RSA
 import rsa
@@ -53,15 +53,22 @@ class MainWindow(QMainWindow):
         self.ui.senderPrivateLineEdit.setText(str(self.senderPrivKey.exp2))
         self.ui.receiverOpenLineEdit.setText(str(self.receiverPrivKey.exp1))
         self.ui.receiverPrivateLineEdit.setText(str(self.receiverPrivKey.exp2))
+        self.ui.proceedPushButton.setEnabled(True)
 
     def proceed_clicked(self):
         #TODO: тут сделать условия выхода
         #   не сгенерены ключи
         #   пустое поле текста
 
+        # Подписание текста закрытым ключом отправителя
+        plainText = self.ui.plainTextEdit.toPlainText()
+        hashSender = rsa.compute_hash(bytes(plainText, 'utf8'), "SHA-1")
+        signature = rsa.sign_hash(hashSender, self.senderPrivKey, "SHA-1")
+        self.ui.senderHashLineEdit.setText(hashSender.hex())
+        self.ui.originalEcpLineEdit.setText(signature.hex())
+
         # Зашифровка текста симметричным шифром
         print("Debug: proceed")
-        plainText = self.ui.plainTextEdit.toPlainText()
         key = self.ui.symmKeyLineEdit.text()
         cipher1 = AES.new(bytes(key, 'utf-8'), AES.MODE_CBC, iv)
         cipherText = cipher1.encrypt(pad((bytes(plainText, 'utf8')),BLOCK_SIZE))
@@ -79,6 +86,14 @@ class MainWindow(QMainWindow):
         cipher2 = AES.new(decrSymmKey, AES.MODE_CBC, iv)
         decryptedText = unpad(cipher2.decrypt(cipherText),BLOCK_SIZE)
         self.ui.receivedPlainTextEdit.setPlainText(decryptedText.decode())
+
+        # Проверка ЭЦП получателем
+        hashReceiver = rsa.compute_hash(decryptedText, "SHA-1")
+        self.ui.receiverHashLineEdit.setText(hashReceiver.hex())
+        if rsa.verify(decryptedText, signature, self.senderPubKey):
+            self.ui.decryptedEcpLineEdit.setText(self.tr("Success"))
+        else:
+            self.ui.decryptedEcpLineEdit.setText(self.tr("Failure"))
 
     def symmInfoClicked(self):
         print("AES")
@@ -175,6 +190,11 @@ class InfoWindow(QDialog):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    translator = QTranslator()
+    if translator.load("translation_ru"):
+        app.installTranslator(translator)
+    else:
+        print("Failed to load translation")
     widget = MainWindow()
     widget.show()
     sys.exit(app.exec())

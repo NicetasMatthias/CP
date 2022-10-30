@@ -15,16 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QGroupBox, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QPlainTextEdit,
-    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QGroupBox, QHBoxLayout, QLabel,
+    QLineEdit, QMainWindow, QPlainTextEdit, QPushButton,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1313, 526)
+        MainWindow.resize(1456, 488)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout_6 = QHBoxLayout(self.centralwidget)
@@ -36,71 +35,76 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.groupBox = QGroupBox(self.groupBox_2)
         self.groupBox.setObjectName(u"groupBox")
-        self.formLayout_3 = QFormLayout(self.groupBox)
-        self.formLayout_3.setObjectName(u"formLayout_3")
+        self.verticalLayout_17 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.label = QLabel(self.groupBox)
         self.label.setObjectName(u"label")
 
-        self.formLayout_3.setWidget(0, QFormLayout.LabelRole, self.label)
+        self.verticalLayout_17.addWidget(self.label)
 
         self.symmKeyLineEdit = QLineEdit(self.groupBox)
         self.symmKeyLineEdit.setObjectName(u"symmKeyLineEdit")
+        self.symmKeyLineEdit.setReadOnly(True)
 
-        self.formLayout_3.setWidget(0, QFormLayout.FieldRole, self.symmKeyLineEdit)
+        self.verticalLayout_17.addWidget(self.symmKeyLineEdit)
 
 
         self.verticalLayout_5.addWidget(self.groupBox)
 
         self.senderGroupBox = QGroupBox(self.groupBox_2)
         self.senderGroupBox.setObjectName(u"senderGroupBox")
-        self.formLayout_2 = QFormLayout(self.senderGroupBox)
-        self.formLayout_2.setObjectName(u"formLayout_2")
+        self.verticalLayout_18 = QVBoxLayout(self.senderGroupBox)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.label_4 = QLabel(self.senderGroupBox)
         self.label_4.setObjectName(u"label_4")
 
-        self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.label_4)
+        self.verticalLayout_18.addWidget(self.label_4)
 
         self.senderOpenLineEdit = QLineEdit(self.senderGroupBox)
         self.senderOpenLineEdit.setObjectName(u"senderOpenLineEdit")
+        self.senderOpenLineEdit.setReadOnly(True)
 
-        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.senderOpenLineEdit)
+        self.verticalLayout_18.addWidget(self.senderOpenLineEdit)
 
         self.label_5 = QLabel(self.senderGroupBox)
         self.label_5.setObjectName(u"label_5")
 
-        self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.label_5)
+        self.verticalLayout_18.addWidget(self.label_5)
 
         self.senderPrivateLineEdit = QLineEdit(self.senderGroupBox)
         self.senderPrivateLineEdit.setObjectName(u"senderPrivateLineEdit")
+        self.senderPrivateLineEdit.setReadOnly(True)
 
-        self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.senderPrivateLineEdit)
+        self.verticalLayout_18.addWidget(self.senderPrivateLineEdit)
 
 
         self.verticalLayout_5.addWidget(self.senderGroupBox)
 
         self.receiverGroupBox = QGroupBox(self.groupBox_2)
         self.receiverGroupBox.setObjectName(u"receiverGroupBox")
-        self.formLayout = QFormLayout(self.receiverGroupBox)
-        self.formLayout.setObjectName(u"formLayout")
+        self.verticalLayout_19 = QVBoxLayout(self.receiverGroupBox)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.label_2 = QLabel(self.receiverGroupBox)
         self.label_2.setObjectName(u"label_2")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
+        self.verticalLayout_19.addWidget(self.label_2)
 
         self.receiverOpenLineEdit = QLineEdit(self.receiverGroupBox)
         self.receiverOpenLineEdit.setObjectName(u"receiverOpenLineEdit")
+        self.receiverOpenLineEdit.setReadOnly(True)
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.receiverOpenLineEdit)
+        self.verticalLayout_19.addWidget(self.receiverOpenLineEdit)
 
         self.label_3 = QLabel(self.receiverGroupBox)
         self.label_3.setObjectName(u"label_3")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_3)
+        self.verticalLayout_19.addWidget(self.label_3)
 
         self.receiverPrivateLineEdit = QLineEdit(self.receiverGroupBox)
         self.receiverPrivateLineEdit.setObjectName(u"receiverPrivateLineEdit")
+        self.receiverPrivateLineEdit.setReadOnly(True)
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.receiverPrivateLineEdit)
+        self.verticalLayout_19.addWidget(self.receiverPrivateLineEdit)
 
 
         self.verticalLayout_5.addWidget(self.receiverGroupBox)
@@ -159,6 +163,7 @@ class Ui_MainWindow(object):
 
         self.cipherTextEdit = QPlainTextEdit(self.groupBox_6)
         self.cipherTextEdit.setObjectName(u"cipherTextEdit")
+        self.cipherTextEdit.setReadOnly(True)
 
         self.verticalLayout_2.addWidget(self.cipherTextEdit)
 
@@ -174,6 +179,7 @@ class Ui_MainWindow(object):
 
         self.receivedPlainTextEdit = QPlainTextEdit(self.groupBox_6)
         self.receivedPlainTextEdit.setObjectName(u"receivedPlainTextEdit")
+        self.receivedPlainTextEdit.setReadOnly(True)
 
         self.verticalLayout_3.addWidget(self.receivedPlainTextEdit)
 
@@ -187,69 +193,63 @@ class Ui_MainWindow(object):
         self.groupBox_5.setObjectName(u"groupBox_5")
         self.horizontalLayout_5 = QHBoxLayout(self.groupBox_5)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.formLayout_6 = QFormLayout()
-        self.formLayout_6.setObjectName(u"formLayout_6")
-        self.label_12 = QLabel(self.groupBox_5)
-        self.label_12.setObjectName(u"label_12")
-
-        self.formLayout_6.setWidget(1, QFormLayout.LabelRole, self.label_12)
-
-        self.OriginalEcpLineEdit = QLineEdit(self.groupBox_5)
-        self.OriginalEcpLineEdit.setObjectName(u"OriginalEcpLineEdit")
-
-        self.formLayout_6.setWidget(1, QFormLayout.FieldRole, self.OriginalEcpLineEdit)
-
+        self.verticalLayout_15 = QVBoxLayout()
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.label_10 = QLabel(self.groupBox_5)
         self.label_10.setObjectName(u"label_10")
 
-        self.formLayout_6.setWidget(0, QFormLayout.LabelRole, self.label_10)
+        self.verticalLayout_15.addWidget(self.label_10)
 
         self.senderHashLineEdit = QLineEdit(self.groupBox_5)
         self.senderHashLineEdit.setObjectName(u"senderHashLineEdit")
+        self.senderHashLineEdit.setReadOnly(True)
 
-        self.formLayout_6.setWidget(0, QFormLayout.FieldRole, self.senderHashLineEdit)
+        self.verticalLayout_15.addWidget(self.senderHashLineEdit)
+
+        self.label_12 = QLabel(self.groupBox_5)
+        self.label_12.setObjectName(u"label_12")
+
+        self.verticalLayout_15.addWidget(self.label_12)
+
+        self.originalEcpLineEdit = QLineEdit(self.groupBox_5)
+        self.originalEcpLineEdit.setObjectName(u"originalEcpLineEdit")
+        self.originalEcpLineEdit.setReadOnly(True)
+
+        self.verticalLayout_15.addWidget(self.originalEcpLineEdit)
 
 
-        self.horizontalLayout_5.addLayout(self.formLayout_6)
+        self.horizontalLayout_5.addLayout(self.verticalLayout_15)
 
         self.horizontalSpacer_2 = QSpacerItem(255, 89, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_5.addItem(self.horizontalSpacer_2)
 
-        self.formLayout_7 = QFormLayout()
-        self.formLayout_7.setObjectName(u"formLayout_7")
-        self.label_13 = QLabel(self.groupBox_5)
-        self.label_13.setObjectName(u"label_13")
-
-        self.formLayout_7.setWidget(1, QFormLayout.LabelRole, self.label_13)
-
-        self.decryptedEcpLineEdit = QLineEdit(self.groupBox_5)
-        self.decryptedEcpLineEdit.setObjectName(u"decryptedEcpLineEdit")
-
-        self.formLayout_7.setWidget(1, QFormLayout.FieldRole, self.decryptedEcpLineEdit)
-
-        self.label_14 = QLabel(self.groupBox_5)
-        self.label_14.setObjectName(u"label_14")
-
-        self.formLayout_7.setWidget(2, QFormLayout.LabelRole, self.label_14)
-
-        self.CalculatedEcpLineEdit = QLineEdit(self.groupBox_5)
-        self.CalculatedEcpLineEdit.setObjectName(u"CalculatedEcpLineEdit")
-
-        self.formLayout_7.setWidget(2, QFormLayout.FieldRole, self.CalculatedEcpLineEdit)
-
-        self.receiverHashLineEdit = QLineEdit(self.groupBox_5)
-        self.receiverHashLineEdit.setObjectName(u"receiverHashLineEdit")
-
-        self.formLayout_7.setWidget(0, QFormLayout.FieldRole, self.receiverHashLineEdit)
-
+        self.verticalLayout_16 = QVBoxLayout()
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.label_15 = QLabel(self.groupBox_5)
         self.label_15.setObjectName(u"label_15")
 
-        self.formLayout_7.setWidget(0, QFormLayout.LabelRole, self.label_15)
+        self.verticalLayout_16.addWidget(self.label_15)
+
+        self.receiverHashLineEdit = QLineEdit(self.groupBox_5)
+        self.receiverHashLineEdit.setObjectName(u"receiverHashLineEdit")
+        self.receiverHashLineEdit.setReadOnly(True)
+
+        self.verticalLayout_16.addWidget(self.receiverHashLineEdit)
+
+        self.label_13 = QLabel(self.groupBox_5)
+        self.label_13.setObjectName(u"label_13")
+
+        self.verticalLayout_16.addWidget(self.label_13)
+
+        self.decryptedEcpLineEdit = QLineEdit(self.groupBox_5)
+        self.decryptedEcpLineEdit.setObjectName(u"decryptedEcpLineEdit")
+        self.decryptedEcpLineEdit.setReadOnly(True)
+
+        self.verticalLayout_16.addWidget(self.decryptedEcpLineEdit)
 
 
-        self.horizontalLayout_5.addLayout(self.formLayout_7)
+        self.horizontalLayout_5.addLayout(self.verticalLayout_16)
 
 
         self.verticalLayout_4.addWidget(self.groupBox_5)
@@ -262,35 +262,37 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
-        self.formLayout_4 = QFormLayout()
-        self.formLayout_4.setObjectName(u"formLayout_4")
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_9 = QLabel(self.groupBox_7)
         self.label_9.setObjectName(u"label_9")
 
-        self.formLayout_4.setWidget(0, QFormLayout.LabelRole, self.label_9)
+        self.verticalLayout_13.addWidget(self.label_9)
 
         self.encKeyLineEdit = QLineEdit(self.groupBox_7)
         self.encKeyLineEdit.setObjectName(u"encKeyLineEdit")
+        self.encKeyLineEdit.setReadOnly(True)
 
-        self.formLayout_4.setWidget(0, QFormLayout.FieldRole, self.encKeyLineEdit)
+        self.verticalLayout_13.addWidget(self.encKeyLineEdit)
 
 
-        self.horizontalLayout_3.addLayout(self.formLayout_4)
+        self.horizontalLayout_3.addLayout(self.verticalLayout_13)
 
-        self.formLayout_5 = QFormLayout()
-        self.formLayout_5.setObjectName(u"formLayout_5")
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_11 = QLabel(self.groupBox_7)
         self.label_11.setObjectName(u"label_11")
 
-        self.formLayout_5.setWidget(0, QFormLayout.LabelRole, self.label_11)
+        self.verticalLayout_14.addWidget(self.label_11)
 
         self.decrKeyLineEdit = QLineEdit(self.groupBox_7)
         self.decrKeyLineEdit.setObjectName(u"decrKeyLineEdit")
+        self.decrKeyLineEdit.setReadOnly(True)
 
-        self.formLayout_5.setWidget(0, QFormLayout.FieldRole, self.decrKeyLineEdit)
+        self.verticalLayout_14.addWidget(self.decrKeyLineEdit)
 
 
-        self.horizontalLayout_3.addLayout(self.formLayout_5)
+        self.horizontalLayout_3.addLayout(self.verticalLayout_14)
 
 
         self.verticalLayout_4.addWidget(self.groupBox_7)
@@ -303,6 +305,7 @@ class Ui_MainWindow(object):
 
         self.proceedPushButton = QPushButton(self.groupBox_3)
         self.proceedPushButton.setObjectName(u"proceedPushButton")
+        self.proceedPushButton.setEnabled(False)
 
         self.horizontalLayout_4.addWidget(self.proceedPushButton)
 
@@ -434,11 +437,10 @@ class Ui_MainWindow(object):
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Enc text", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Decr text", None))
         self.groupBox_5.setTitle("")
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Original ecp", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Sender hash", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Decrypted ecp", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Calculated ecp", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Original ecp", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Receiver hash", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Decrypted ecp", None))
         self.groupBox_7.setTitle("")
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Enc key", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Decr key", None))

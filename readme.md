@@ -4,12 +4,12 @@
 ### Составляющие:
 - Симметричный шифр: AES *добавить размерность*
 - Асимметричный шифр: RSA *добавить размерность*
-- Хеш-функция: *добавить хеш-функцию*
+- Хеш-функция: SHA-1
 - Алгоритм цифровой подписи: RSA *добавить спецификацию*
 
 
 ## Внимание!
-Чтобы вносимые изменения в .ui и .rc файлы оказывали влияние при сборке, необходимо
+Чтобы вносимые изменения в .ui и .rc файлы и файлы переводов оказывали влияние при сборке, необходимо
 ### Linux:
 ***mainwindow.py*** содержит строку
 ```Python
@@ -20,6 +20,8 @@
     pyside6-uic form.ui -o ui_form.py
     pyside6-uic informationDialog.ui -o informationDialog.py
     pyside6-rcc resources.qrc -o rc_resource.py
+    pyside6-lupdate form.ui informationDialog.ui mainwindow.py -ts translation_ru.ts
+    pyside6-lrelease translation_ru.ts -qm translation_ru.qm
 ```
 > В случае отличия в версии pyside заменить на свою
 
@@ -29,4 +31,6 @@
     pyside6-uic form.ui -o ui_form.py
     pyside6-uic informationDialog.ui -o informationDialog.py
     pyside6-rcc resources.qrc -o rc_resource.py
+    pyside6-lupdate form.ui informationDialog.ui mainwindow.py -ts translation_ru.ts
+    pyside6-lrelease translation_ru.ts -qm translation_ru.qm
 ```
