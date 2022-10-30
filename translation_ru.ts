@@ -164,12 +164,12 @@
         <translation>Выводы</translation>
     </message>
     <message>
-        <location filename="mainwindow.py" line="94"/>
+        <location filename="mainwindow.py" line="98"/>
         <source>Success</source>
         <translation>УСПЕХ</translation>
     </message>
     <message>
-        <location filename="mainwindow.py" line="96"/>
+        <location filename="mainwindow.py" line="100"/>
         <source>Failure</source>
         <translation>ОШИБКА</translation>
     </message>

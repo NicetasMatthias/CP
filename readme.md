@@ -9,28 +9,14 @@
 
 
 ## Внимание!
-Чтобы вносимые изменения в .ui и .rc файлы и файлы переводов оказывали влияние при сборке, необходимо
+Чтобы вносимые изменения в .ui и .rc файлы и файлы переводов оказывали влияние при сборке, необходимо выполнение скрипта
 ### Linux:
-***mainwindow.py*** содержит строку
+Для этого ***mainwindow.py*** содержит строку
 ```Python
-#os.system("./make_ui.sh")
-```
-ее нужно раскоментить и соответственно создать в каталоге исходного кода файл ***make_ui.sh*** со следующим содержанием:
-```bash
-    pyside6-uic form.ui -o ui_form.py
-    pyside6-uic informationDialog.ui -o informationDialog.py
-    pyside6-rcc resources.qrc -o rc_resource.py
-    pyside6-lupdate form.ui informationDialog.ui mainwindow.py -ts translation_ru.ts
-    pyside6-lrelease translation_ru.ts -qm translation_ru.qm
+    os.system("./make_ui.sh")
 ```
 > В случае отличия в версии pyside заменить на свою
+> В случае возникновения ошибок при выполнении скрипта часть действий может быть не выполнена
 
-### Windows:
-Нужно настроить исполнение аналогичного кода:
-```bash
-    pyside6-uic form.ui -o ui_form.py
-    pyside6-uic informationDialog.ui -o informationDialog.py
-    pyside6-rcc resources.qrc -o rc_resource.py
-    pyside6-lupdate form.ui informationDialog.ui mainwindow.py -ts translation_ru.ts
-    pyside6-lrelease translation_ru.ts -qm translation_ru.qm
-```
+### Windows
+**Упс**, скрипта нет =)

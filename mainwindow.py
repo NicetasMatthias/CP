@@ -1,12 +1,16 @@
 # Этот шаг нужен для пересборки файла формы
 import os
-#os.system("./make_ui.sh")
+from sys import platform
+if platform == "linux" or platform == "linux2":
+    os.system("./make_ui.sh")
+elif platform == "win32":
+    print("No script for Win")
 
 # This Python file uses the following encoding: utf-8
 import sys
 import random, string
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
-from PySide6.QtCore import QFile, QIODevice, QTranslator, QCoreApplication, QLocale, QObject
+from PySide6.QtCore import QFile, QIODevice, QTranslator
 from Crypto.Cipher import AES
 #from Crypto.PublicKey import RSA
 import rsa
