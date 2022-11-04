@@ -4,6 +4,7 @@ from sys import platform
 if platform == "linux" or platform == "linux2":
     os.system("./make_ui.sh")
 elif platform == "win32":
+    os.system("pyside6-rcc resources.qrc -o rc_resource.py")
     print("No script for Win")
 
 # This Python file uses the following encoding: utf-8
