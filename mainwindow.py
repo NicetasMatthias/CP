@@ -4,13 +4,16 @@ from sys import platform
 if platform == "linux" or platform == "linux2":
     os.system("./make_ui.sh")
 elif platform == "win32":
+    os.system("pyside6-uic informationDialog.ui -o informationDialog.py")
+    os.system("pyside6-uic form.ui -o ui_form.py")
     os.system("pyside6-rcc resources.qrc -o rc_resource.py")
     print("No script for Win")
 
 # This Python file uses the following encoding: utf-8
 import sys
 import random, string
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
+from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QLabel, QWidget
 from PySide6.QtCore import QFile, QIODevice, QTranslator
 from Crypto.Cipher import AES
 #from Crypto.PublicKey import RSA
@@ -110,9 +113,16 @@ class MainWindow(QMainWindow):
         if not textFile.open(QIODevice.ReadOnly):
             print("symm text file open error")
             return
+
         self.infoDialog = InfoWindow()
         self.infoDialog.ui.InfoLabel.setText(str(labelFile.readAll(),"utf-8"))
         self.infoDialog.ui.InfoTextBrowser.setText(str(textFile.readAll(),"utf-8"))
+
+        self.infoDialog.ui.labelPic1.setPixmap (QPixmap (":/Resouces/Pictures/aes_1.JPG"))
+        self.infoDialog.ui.labelPic2.setPixmap (QPixmap (":/Resouces/Pictures/aes_2.JPG"))
+        self.infoDialog.ui.tabWidget.setTabVisible (2, False)
+
+
         labelFile.close()
         textFile.close()
         self.infoDialog.show()
@@ -130,6 +140,9 @@ class MainWindow(QMainWindow):
         self.infoDialog = InfoWindow()
         self.infoDialog.ui.InfoLabel.setText(str(labelFile.readAll(),"utf-8"))
         self.infoDialog.ui.InfoTextBrowser.setText(str(textFile.readAll(),"utf-8"))
+
+        self.infoDialog.ui.tabWidget.setVisible (False)
+
         labelFile.close()
         textFile.close()
         self.infoDialog.show()
@@ -147,6 +160,11 @@ class MainWindow(QMainWindow):
         self.infoDialog = InfoWindow()
         self.infoDialog.ui.InfoLabel.setText(str(labelFile.readAll(),"utf-8"))
         self.infoDialog.ui.InfoTextBrowser.setText(str(textFile.readAll(),"utf-8"))
+
+        self.infoDialog.ui.labelPic1.setPixmap (QPixmap (":/Resouces/Pictures/sha1_1.JPG"))
+        self.infoDialog.ui.labelPic2.setPixmap (QPixmap (":/Resouces/Pictures/sha1_2.JPG"))
+        self.infoDialog.ui.labelPic2.setPixmap (QPixmap (":/Resouces/Pictures/sha1_3.JPG"))
+
         labelFile.close()
         textFile.close()
         self.infoDialog.show()
@@ -164,6 +182,11 @@ class MainWindow(QMainWindow):
         self.infoDialog = InfoWindow()
         self.infoDialog.ui.InfoLabel.setText(str(labelFile.readAll(),"utf-8"))
         self.infoDialog.ui.InfoTextBrowser.setText(str(textFile.readAll(),"utf-8"))
+
+        self.infoDialog.ui.labelPic1.setPixmap (QPixmap (":/Resouces/Pictures/ecp_1.JPG"))
+        self.infoDialog.ui.labelPic2.setPixmap (QPixmap (":/Resouces/Pictures/ecp_2.JPG"))
+        self.infoDialog.ui.tabWidget.setTabVisible (2, False)
+
         labelFile.close()
         textFile.close()
         self.infoDialog.show()
@@ -181,6 +204,9 @@ class MainWindow(QMainWindow):
         self.infoDialog = InfoWindow()
         self.infoDialog.ui.InfoLabel.setText(str(labelFile.readAll(),"utf-8"))
         self.infoDialog.ui.InfoTextBrowser.setText(str(textFile.readAll(),"utf-8"))
+
+        self.infoDialog.ui.tabWidget.setVisible (False)
+
         labelFile.close()
         textFile.close()
         self.infoDialog.show()

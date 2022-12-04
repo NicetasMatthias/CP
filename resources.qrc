@@ -10,5 +10,12 @@
         <file alias="hash_text">Resouces/hash_text</file>
         <file alias="symm_label">Resouces/symmetric_cipher_label</file>
         <file alias="symm_text">Resouces/symmetric_cipher_text</file>
+        <file>Resouces/Pictures/aes_1.JPG</file>
+        <file>Resouces/Pictures/aes_2.JPG</file>
+        <file>Resouces/Pictures/ecp_1.JPG</file>
+        <file>Resouces/Pictures/ecp_2.JPG</file>
+        <file>Resouces/Pictures/sha1_1.JPG</file>
+        <file>Resouces/Pictures/sha1_2.JPG</file>
+        <file>Resouces/Pictures/sha1_3.JPG</file>
     </qresource>
 </RCC>

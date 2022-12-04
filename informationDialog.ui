@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
+    <width>1218</width>
     <height>538</height>
    </rect>
   </property>
@@ -16,16 +16,79 @@
   <property name="modal">
    <bool>true</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
-    <widget class="QLabel" name="InfoLabel">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+     <item>
+      <widget class="QLabel" name="InfoLabel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="InfoTextBrowser"/>
+     </item>
+    </layout>
    </item>
    <item>
-    <widget class="QTextBrowser" name="InfoTextBrowser"/>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tabWidgetPage1" native="true">
+        <attribute name="title">
+         <string>1</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1">
+         <item>
+          <widget class="QLabel" name="labelPic1">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabWidgetPage2" native="true">
+        <attribute name="title">
+         <string>2</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1">
+         <item>
+          <widget class="QLabel" name="labelPic2">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tabWidgetPage3" native="true">
+        <attribute name="title">
+         <string>3</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1">
+         <item>
+          <widget class="QLabel" name="labelPic3">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
